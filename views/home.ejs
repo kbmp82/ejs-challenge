@@ -1,0 +1,26 @@
+<%- include('partials/header') -%>
+<h1>Home</h1>
+<p>
+
+  <%=homeStartingContent%>
+  </p>
+  <% posts.forEach(function(item){ %>
+  <%  for (let key in item.posts) {%>
+  <%  let arr = item.posts[key]; %>
+  <div class="post">
+    <p>
+    <span class="homePageTitle"><%= arr.title; %></span> (<a href="/posts/<%=item.topic%>"><%=item.topic%></a>)</p>
+    <p>
+      <% if (arr.body.length > 100) { %>
+        <% let lowerCaseName = arr.title.toLowerCase(); %>
+        <%  let noSpace = lowerCaseName.replace(' ', '-');%>
+    <%= arr.body.substring(0, 100) %> ... <a href="/posts/<%=noSpace%>">read more</a>
+    <%  } else {%>
+  <%=arr.body;%>
+    <%  }%>
+      </p>
+    </div>
+  <% }%>
+
+<% }); %>
+<%- include('partials/footer') -%>
