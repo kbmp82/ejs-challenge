@@ -102,8 +102,8 @@ const postBody = [{
         console.log("opp---------- "+err);
       }
   });
-    foundTopic.posts.push(postBody);
-    foundTopic.save();
+    //foundTopic.posts.push(postBody);
+  //  foundTopic.save();
     res.redirect("/posts/"+topic);
   }
 });
